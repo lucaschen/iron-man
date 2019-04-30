@@ -1,0 +1,244 @@
+$cream-can: #ebc13b;
+$cream-white: #fdfffe;
+$gunmetal: #000b13;
+$upsdell-red: #ae1927;
+
+body {
+  background-color: $cream-can;
+}
+
+main {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// original was 207x345 (3:5)
+.iron-man {
+  font-size: 5rem;
+  height: 5em;
+  position: relative;
+  width: 3em;
+
+  &__head {
+    &--part1 {
+      background-color: $upsdell-red;
+      border-radius: 50%;
+      height: 3em;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 3em;
+    }
+
+    &--part2 {
+      background-color: $upsdell-red;
+      border-radius: 50%;
+      height: 2.92em;
+      left: 0.04em;
+      position: absolute;
+      top: 0.45em;
+      width: 2.92em;
+    }
+
+    &--part3 {
+      border-left: 0.3em solid transparent;
+      border-right: 0.3em solid transparent;
+      border-top: 1.6em solid $upsdell-red;
+      height: 0;
+      left: 0.05em;
+      position: absolute;
+      top: 2.15em;
+      width: 2.3em;
+    }
+
+    &--part4 {
+      border-left: 0.7em solid transparent;
+      border-right: 0.7em solid transparent;
+      border-top: 1em solid $upsdell-red;
+      height: 0;
+      left: 0.35em;
+      position: absolute;
+      top: 3.75em;
+      width: 0.9em;
+    }
+  }
+
+  &__forehead {
+    background-color: $cream-can;
+    height: 1.62em;
+    left: 0;
+    position: absolute;
+    top: 0.5em;
+    width: 3em;
+  }
+
+  &__cheek-bg {
+    &--left,
+    &--right {
+      background-color: $gunmetal;
+      border-radius: 50%;
+      height: 2em;
+      position: absolute;
+      top: 2em;
+      width: 2em;
+    }
+
+    &--left {
+      left: 0.4em;
+    }
+
+    &--right {
+      right: 0.4em;
+    }
+  }
+
+  &__cheek {
+    &--part1 {
+      border-left: 0.2em solid transparent;
+      border-right: 0.2em solid transparent;
+      border-top: 0.6em solid $cream-can;
+      height: 0;
+      left: 0em;
+      position: absolute;
+      top: 2em;
+      width: 2.6em;
+    }
+
+    &--part2 {
+      border-left: 0.5em solid transparent;
+      border-right: 0.5em solid transparent;
+      border-top: 1em solid $cream-can;
+      height: 0;
+      left: 0.2em;
+      position: absolute;
+      top: 2.6em;
+      width: 1.6em;
+    }
+
+    &--part3 {
+      border-left: 0.05em solid transparent;
+      border-right: 0.05em solid transparent;
+      border-bottom: 0.5em solid $cream-can;
+      height: 0;
+      left: 0.65em;
+      position: absolute;
+      top: 3.6em;
+      width: 1.6em;
+    }
+  }
+
+  &__eye {
+    $eye-width: 0.8em;
+    $eye-part2-width: 0.5em;
+
+    &--left {
+      &--part1 {
+        left: 0.35em;
+        position: absolute;
+        top: 2.5em;
+
+        &::before {
+          content: "";
+          border-right: $eye-width solid transparent;
+          border-left: 0;
+          border-bottom: 0.15em solid $cream-white;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+        }
+
+        &::after {
+          content: "";
+          border-left: $eye-width solid transparent;
+          border-right: 0;
+          border-top: 0.15em solid $cream-white;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+      }
+
+      &--part2 {
+        background-color: $cream-white;
+        height: 0.15em;
+        left: 0.35em + $eye-width - $eye-part2-width;
+        position: absolute;
+        top: 2.5em;
+        width: $eye-part2-width;
+
+        &::before {
+          border-top: 0.15em solid $cream-white;
+          border-left: ($eye-width - $eye-part2-width) solid transparent;
+          border-right: 0;
+          bottom: 0;
+          content: "";
+          position: absolute;
+          right: 100%;
+        }
+      }
+    }
+
+    &--right {
+      &--part1 {
+        right: 0.35em;
+        position: absolute;
+        top: 2.5em;
+
+        &::before {
+          content: "";
+          border-left: $eye-width solid transparent;
+          border-right: 0;
+          border-bottom: 0.15em solid $cream-white;
+          position: absolute;
+          right: 0;
+          bottom: 0;
+        }
+
+        &::after {
+          content: "";
+          border-right: $eye-width solid transparent;
+          border-left: 0;
+          border-top: 0.15em solid $cream-white;
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+
+      &--part2 {
+        background-color: $cream-white;
+        height: 0.15em;
+        right: 0.35em + $eye-width - $eye-part2-width;
+        position: absolute;
+        top: 2.5em;
+        width: $eye-part2-width;
+
+        &::before {
+          border-top: 0.15em solid $cream-white;
+          border-left: 0;
+          border-right: ($eye-width - $eye-part2-width) solid transparent;
+          bottom: 0;
+          content: "";
+          position: absolute;
+          left: 100%;
+        }
+      }
+    }
+  }
+}
+
+.iron-man-comparison {
+  position: absolute;
+  left: 50%;
+  margin-left: -5px;
+  margin-top: 35px;
+  opacity: 0;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1.11);
+
+  &:hover {
+    opacity: 1;
+  }
+}

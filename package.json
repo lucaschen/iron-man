@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "parcel": "~1.12.3",
+    "sass": "~1.19.0"
+  },
+  "scripts": {
+    "watch": "parcel index.html"
+  }
+}
