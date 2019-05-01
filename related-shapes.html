@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Shapes</title>
+    <meta charset="UTF-8" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+    <style type="text/css">
+      body {
+        font-family: "Open Sans", sans-serif;
+      }
+
+      main {
+        align-items: center;
+        display: flex;
+        flex-flow: column nowrap;
+      }
+
+      .shape {
+        margin: 10px 0;
+      }
+
+      .square {
+        background-color: red;
+        height: 100px;
+        width: 100px;
+      }
+
+      .circle {
+        background-color: orange;
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+      }
+
+      .eye {
+        background-color: blue;
+        border-radius: 100% 0;
+        height: 100px;
+        width: 100px;
+      }
+
+      .triangle {
+        border-bottom: 100px solid green;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        height: 0;
+        width: 0;
+      }
+
+      .trapezium {
+        border-bottom: 50px solid purple;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        height: 0;
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Shapes</h1>
+      <div class="shape square"></div>
+      <div class="shape circle"></div>
+      <div class="shape eye"></div>
+      <div class="shape triangle"></div>
+      <div class="shape trapezium"></div>
+    </main>
+  </body>
+</html>
