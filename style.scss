@@ -1,10 +1,14 @@
 $cream-can: #ebc13b;
 $cream-white: #fdfffe;
+$falu-red: #5c0b11;
 $gunmetal: #000b13;
+$la-rioja: #bda441;
+$shadow: rgba(0, 0, 0, 0.5);
 $upsdell-red: #ae1927;
 
 body {
   background-color: $cream-can;
+  overflow: hidden;
 }
 
 main {
@@ -14,6 +18,17 @@ main {
   transform: translate(-50%, -50%);
 }
 
+.bg-red-stripe {
+  background-color: $falu-red;
+  width: 100vw;
+  position: absolute;
+  left: 51%;
+  height: 300vh;
+  top: -100vh;
+  transform: rotate(35.35deg);
+  transform-origin: left center;
+}
+
 // original was 207x345 (3:5)
 .iron-man {
   font-size: 5rem;
@@ -21,15 +36,29 @@ main {
   position: relative;
   width: 3em;
 
+  &:before {
+    content: "";
+    width: 100vw;
+    height: 0;
+    border-top: 3.7em solid rgba(0, 0, 0, 0.5);
+    border-left: 1em solid transparent;
+    border-right: 1em solid transparent;
+    position: absolute;
+    left: 1.36em;
+    top: 0.1em;
+    transform: rotate(55deg);
+    transform-origin: left center;
+  }
+
   &__head {
     &--part1 {
       background-color: $upsdell-red;
       border-radius: 50%;
       height: 3em;
-      left: 0;
+      left: 0.025em;
       position: absolute;
       top: 0;
-      width: 3em;
+      width: 2.95em;
     }
 
     &--part2 {
@@ -65,13 +94,141 @@ main {
     }
   }
 
-  &__forehead {
+  &__forehead-back {
     background-color: $cream-can;
     height: 1.62em;
-    left: 0;
+    left: 50%;
     position: absolute;
     top: 0.5em;
-    width: 3em;
+    width: 2.3em;
+    transform: translateX(-50%);
+
+    &::before {
+      background-color: $cream-can;
+      content: "";
+      width: 1.1em;
+      height: 1.1em;
+      border-radius: 100% 0;
+      position: absolute;
+      left: -0.575em;
+      top: 0.225em;
+      transform: rotate(-42.5deg);
+    }
+
+    &::after {
+      background-color: $cream-can;
+      content: "";
+      width: 1.1em;
+      height: 1.1em;
+      border-radius: 0 100%;
+      position: absolute;
+      right: -0.575em;
+      top: 0.225em;
+      transform: rotate(42.5deg);
+    }
+  }
+
+  &__forehead-curve {
+    &--bg {
+      background-color: $upsdell-red;
+      height: 1em;
+      left: 0.375em;
+      position: absolute;
+      top: 0.5em;
+      width: 2.25em;
+    }
+
+    &--shadow {
+      background-color: $shadow;
+      position: absolute;
+      left: 0.75em;
+      width: 1em;
+      height: 1em;
+      top: 0.9em;
+      transform: rotate(45deg);
+    }
+
+    &--left {
+      background-color: $cream-can;
+      position: absolute;
+      width: 0.8em;
+      height: 0.7em;
+      left: 0.43em;
+      top: 0.25em;
+      border-radius: 0 100% 0 100%;
+      transform: rotate(-12deg) scale(1, 0.5);
+    }
+
+    &--right {
+      background-color: $cream-can;
+      position: absolute;
+      width: 0.8em;
+      height: 0.7em;
+      right: 0.43em;
+      top: 0.25em;
+      border-radius: 100% 0 100% 0;
+      transform: rotate(12deg) scale(1, 0.5);
+    }
+  }
+
+  &__forehead-front {
+    &--left {
+      &--part1 {
+        background-color: $cream-can;
+        height: 1em;
+        left: 0.24em;
+        position: absolute;
+        top: 0.58em;
+        width: 0.92em;
+        transform: rotate(12deg);
+      }
+
+      &--part2 {
+        background-color: $cream-can;
+        width: 0.25em;
+        height: 0.9em;
+        position: absolute;
+        left: 1em;
+        top: 0.68em;
+        transform-origin: top right;
+        transform: rotate(3deg);
+      }
+    }
+
+    &--right {
+      &--part1 {
+        background-color: $cream-can;
+        height: 1em;
+        right: 0.24em;
+        position: absolute;
+        top: 0.58em;
+        width: 0.92em;
+        transform: rotate(-12deg);
+      }
+
+      &--part2 {
+        background-color: $cream-can;
+        width: 0.25em;
+        height: 0.9em;
+        position: absolute;
+        right: 1em;
+        top: 0.68em;
+        transform-origin: top left;
+        transform: rotate(-3deg);
+      }
+    }
+  }
+
+  &__forehead-bottom {
+    position: absolute;
+    border-top: 0.5em solid $cream-can;
+    border-left: 0.0375em solid transparent;
+    border-right: 0.0375em solid transparent;
+    top: 1.5em;
+    width: 2.9em;
+    height: 0;
+    position: absolute;
+    left: 0.0125em;
   }
 
   &__cheek-bg {
@@ -96,11 +253,11 @@ main {
 
   &__cheek {
     &--part1 {
-      border-left: 0.2em solid transparent;
-      border-right: 0.2em solid transparent;
+      border-left: 0.15em solid transparent;
+      border-right: 0.15em solid transparent;
       border-top: 0.6em solid $cream-can;
       height: 0;
-      left: 0em;
+      left: 0.05em;
       position: absolute;
       top: 2em;
       width: 2.6em;
@@ -134,6 +291,53 @@ main {
     $eye-part2-width: 0.5em;
 
     &--left {
+      &--bg {
+        &--part1 {
+          left: 0.4em;
+          position: absolute;
+          top: 2.51em;
+
+          &::before {
+            content: "";
+            border-right: $eye-width solid transparent;
+            border-left: 0;
+            border-bottom: 0.15em solid $la-rioja;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+          }
+
+          &::after {
+            content: "";
+            border-left: $eye-width solid transparent;
+            border-right: 0;
+            border-top: 0.15em solid $la-rioja;
+            position: absolute;
+            left: 0;
+            top: 0;
+          }
+        }
+
+        &--part2 {
+          background-color: $la-rioja;
+          height: 0.15em;
+          left: 0.4em + $eye-width - $eye-part2-width;
+          position: absolute;
+          top: 2.55em;
+          width: $eye-part2-width;
+
+          &::before {
+            border-top: 0.15em solid $la-rioja;
+            border-left: ($eye-width - $eye-part2-width) solid transparent;
+            border-right: 0;
+            bottom: 0;
+            content: "";
+            position: absolute;
+            right: 100%;
+          }
+        }
+      }
+
       &--part1 {
         left: 0.35em;
         position: absolute;
@@ -181,6 +385,53 @@ main {
     }
 
     &--right {
+      &--bg {
+        &--part1 {
+          right: 0.4em;
+          position: absolute;
+          top: 2.51em;
+
+          &::before {
+            content: "";
+            border-left: $eye-width solid transparent;
+            border-right: 0;
+            border-bottom: 0.15em solid $la-rioja;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+          }
+
+          &::after {
+            content: "";
+            border-right: $eye-width solid transparent;
+            border-left: 0;
+            border-top: 0.15em solid $la-rioja;
+            position: absolute;
+            right: 0;
+            top: 0;
+          }
+        }
+
+        &--part2 {
+          background-color: $la-rioja;
+          height: 0.15em;
+          right: 0.4em + $eye-width - $eye-part2-width;
+          position: absolute;
+          top: 2.55em;
+          width: $eye-part2-width;
+
+          &::before {
+            border-top: 0.15em solid $la-rioja;
+            border-left: 0;
+            border-right: ($eye-width - $eye-part2-width) solid transparent;
+            bottom: 0;
+            content: "";
+            position: absolute;
+            left: 100%;
+          }
+        }
+      }
+
       &--part1 {
         right: 0.35em;
         position: absolute;
@@ -224,6 +475,143 @@ main {
           position: absolute;
           left: 100%;
         }
+      }
+    }
+  }
+
+  &__chin {
+    &--left {
+      &--part1 {
+        width: 0;
+        height: 0;
+        position: absolute;
+        border-top: 0.35em solid $cream-can;
+        border-left: 0.25em solid transparent;
+        border-right: 0.25em solid transparent;
+        left: 0.65em;
+        top: 4.1em;
+      }
+
+      &--part2 {
+        position: absolute;
+        width: 0.25em;
+        height: 0;
+        border-top: 0.1em solid $cream-can;
+        border-left: 0.125em solid transparent;
+        border-right: 0.125em solid transparent;
+        top: 4.225em;
+        left: 0.85em;
+      }
+    }
+
+    &--right {
+      &--part1 {
+        width: 0;
+        height: 0;
+        position: absolute;
+        border-top: 0.35em solid $cream-can;
+        border-left: 0.25em solid transparent;
+        border-right: 0.25em solid transparent;
+        right: 0.65em;
+        top: 4.1em;
+      }
+
+      &--part2 {
+        position: absolute;
+        width: 0.25em;
+        height: 0;
+        border-top: 0.1em solid $cream-can;
+        border-left: 0.125em solid transparent;
+        border-right: 0.125em solid transparent;
+        top: 4.225em;
+        right: 0.85em;
+      }
+    }
+
+    &--middle {
+      background-color: $cream-can;
+      height: 0.125em;
+      left: 50%;
+      position: absolute;
+      top: 4.1em;
+      transform: translateX(-50%);
+      width: 1em;
+    }
+  }
+
+  &__mouth {
+    &--middle {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%) scale(1, 0.25);
+      top: 4em;
+
+      &:before {
+        content: "";
+        position: absolute;
+        width: 1em;
+        height: 1em;
+        background-color: $gunmetal;
+        border-radius: 100% 0;
+        transform: rotate(45deg) translate(-50%, -50%);
+        left: -0.5em;
+        top: -0.5em;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        width: 1em;
+        height: 1em;
+        background-color: $cream-can;
+        border-radius: 100% 0;
+        transform: rotate(45deg) translate(-50%, -50%);
+        left: -0.5em;
+        top: -0.65em;
+      }
+    }
+
+    &--left {
+      border-top: 0.125em solid $gunmetal;
+      border-left: 0.1em solid transparent;
+      border-right: 0.1em solid transparent;
+      position: absolute;
+      width: 0;
+      height: 0;
+      left: 0.7em;
+      top: 3.825em;
+      transform: rotate(-10deg);
+
+      &::before {
+        content: "";
+        border-top: 0.115em solid $cream-can;
+        border-left: 0.1em solid transparent;
+        border-right: 0.1em solid transparent;
+        position: absolute;
+        left: -0.1em;
+        top: -0.15em;
+      }
+    }
+
+    &--right {
+      border-top: 0.125em solid $gunmetal;
+      border-left: 0.1em solid transparent;
+      border-right: 0.1em solid transparent;
+      position: absolute;
+      width: 0;
+      height: 0;
+      right: 0.7em;
+      top: 3.825em;
+      transform: rotate(10deg);
+
+      &::before {
+        content: "";
+        border-top: 0.115em solid $cream-can;
+        border-left: 0.1em solid transparent;
+        border-right: 0.1em solid transparent;
+        position: absolute;
+        left: -0.1em;
+        top: -0.15em;
       }
     }
   }
