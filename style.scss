@@ -6,6 +6,14 @@ $la-rioja: #bda441;
 $shadow: rgba(0, 0, 0, 0.5);
 $upsdell-red: #ae1927;
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
 body {
   background-color: $cream-can;
   overflow: hidden;
@@ -637,5 +645,16 @@ main {
         top: -0.15em;
       }
     }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  // this causes scrolling which messes up viewport
+  .bg-red-stripe {
+    display: none;
+  }
+
+  .iron-man:before {
+    content: none;
   }
 }

@@ -1,9 +1,14 @@
 {
+  "name": "iron-man",
+  "author": "Lucas Chen",
+  "license": "MIT",
+  "private": true,
   "devDependencies": {
     "parcel": "~1.12.3",
     "sass": "~1.19.0"
   },
   "scripts": {
+    "build": "parcel build index.html",
     "watch": "parcel index.html"
   }
 }
